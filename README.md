@@ -1,0 +1,2 @@
+# Kazai
+website KAZAI IDEAS
