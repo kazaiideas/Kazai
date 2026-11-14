@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ms"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAZAI IDEAS - MyHalal Guide</title>
+<style>
+:root{--blue:#1B1E6B;--blue2:#0A1A3A;--red:#D90429;--red2:#EF233C;--light:#F1F4FA}
+body{font-family:Arial;background:var(--light);padding:0;margin:0;color:#222}
+header{background:white;color:#222;padding:18px 16px 12px;text-align:center;border-bottom:5px solid var(--red);position:sticky;top:0;z-index:10}
+header img{width:200px;max-width:80%;height:auto;display:block;margin:0 auto 4px}
+header p{margin:6px 0 0;font-size:13px;color:#555}
+header .wa-top{background:var(--blue);color:white;display:inline-block;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:bold;margin-top:8px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:10px 16px;background:var(--blue);position:sticky;top:0}
+nav a{background:white;color:var(--blue);padding:8px 12px;border-radius:20px;font-size:12px;text-decoration:none;white-space:nowrap;font-weight:bold}
+.wrap{padding:16px}
+.card{background:white;padding:16px;border-radius:16px;margin:12px 0;box-shadow:0 2px 12px rgba(0,0,0,.1);border-top:4px solid var(--red)}
+.card.blue-top{border-top-color:var(--blue)}
+h2{color:var(--blue);margin-top:0}
+button{width:100%;padding:13px;border:none;border-radius:12px;background:var(--red);color:white;font-size:16px;font-weight:bold;margin-top:8px;cursor:pointer}
+button.blue{background:var(--blue)}
+select,input{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin:8px 0;box-sizing:border-box}
+.skim{display:flex;flex-wrap:wrap;gap:8px} .skim button{width:auto;background:#E8EDF7;color:var(--blue);border:1px solid var(--blue);font-size:13px;padding:10px}
+.check{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #eee;font-size:14px}
+.check input{width:20px;height:20px;accent-color:var(--red);margin-top:2px}
+.badge{display:inline-block;background:var(--blue);color:white;padding:4px 10px;border-radius:20px;font-size:12px}
+#progressBar{height:14px;background:#eee;border-radius:20px;overflow:hidden;margin:10px 0}
+#progressFill{height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--red));transition:.3s}
+.training{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.train{background:#F8F9FF;border:1px solid #DDE3F0;border-radius:14px;padding:12px}
+.train h3{margin:0 0 6px;color:var(--blue);font-size:15px}
+.train p{font-size:12px;margin:0 0 8px;color:#555}
+.train span{font-size:11px;background:#FFE9EC;color:var(--red);padding:3px 7px;border-radius:10px;font-weight:bold}
+.info{border-left:4px solid var(--red);padding:10px;background:#FFF5F5;border-radius:0 12px 12px 0;margin:10px 0}
+.info b{color:var(--blue)}
+.doc{display:flex;justify-content:space-between;align-items:center;background:var(--blue);color:white;padding:14px;border-radius:14px;margin:10px 0}
+.doc b{font-size:14px} .doc small{color:#ccc}
+.doc a{background:var(--red);color:white;padding:8px 12px;border-radius:10px;text-decoration:none;font-size:12px;font-weight:bold}
+small{color:#666}
+.float-wa{position:fixed;bottom:16px;right:16px;background:#25D366;color:white;padding:14px 18px;border-radius:50px;font-weight:bold;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.3);z-index:99}
+</style></head><body>
+
+<header>
+<img src="kazai-logo.png" alt="KAZAI IDEAS - Engaging HALAL Opportunities">
+<p>Est 2016 | Halal Training | Sertu | Consultation & Coaching</p>
+<span class="wa-top">WhatsApp KAZAI: +60 12-521 0592</span>
+</header>
+
+<nav>
+<a href="#skim">Skim</a><a href="#checklist">Checklist</a><a href="#training">Training KAZAI</a><a href="#info">Info Halal</a><a href="#dokumen">Dokumen Rujukan</a>
+</nav>
+
+<div class="wrap">
+
+<div class="card" id="skim">
+<h2>Jenis Skim Halal - 9 Skim</h2>
+<div class="skim">
+<button onclick="skim('Makanan & Minuman','MS 1500:2019')">Makanan</button>
+<button onclick="skim('Kosmetik','MS 2634:2019')">Kosmetik</button>
+<button onclick="skim('Farmaseutikal','MS 2424:2019')">Farmaseutikal</button>
+<button onclick="skim('Premis Makanan','MS 1500:2019')">Premis Makanan</button>
+<button onclick="skim('Barang Gunaan','MS 2738:2023 - BARU Pindaan 2026!')">Barang Gunaan</button>
+<button onclick="skim('Logistik','MS 2400-3:2019')">Logistik</button>
+<button onclick="skim('Rumah Sembelih','MS 1500:2019')">Rumah Sembelih</button>
+<button onclick="skim('OEM','Ikut kategori produk')">OEM</button>
+<button onclick="skim('Peranti Perubatan','MS 2636:2019')">Peranti Perubatan</button>
+</div><div id="skimResult"></div>
+</div>
+
+<div class="card" id="checklist">
+<h2>Checklist Dokumen bagi permohonan HALAL <span class="badge">23 Dokumen</span></h2>
+<p><small>Untuk dihantar kepada JAIN selepas membuat permohonan di MYeHALAL</small></p>
+<div id="progressBar"><div id="progressFill"></div></div>
+<p><b id="progressText">0% Siap - 0 / 23 Dokumen</b></p>
+<div id="checklistBox"></div>
+</div>
+
+<div class="card blue-top">
+<h2>Dokumen Semasa Audit Lapangan - 8 Dokumen</h2>
+<div id="auditList"></div>
+</div>
+
+<div class="card" id="training" style="border-top-color:var(--blue)">
+<h2>Kursus Latihan KAZAI IDEAS</h2>
+<p>Sila pilih kursus latihan</p>
+<div class="training">
+<div class="train"><h3>1. Halal Awareness Training</h3><p>Asas halal untuk semua pekerja.</p><span>1/2 atau 1 HARI • SEMUA STAFF</span><button onclick="ws('Halal Awareness Training')">DAFTAR</button></div>
+<div class="train"><h3>2. Halal Competency Training</h3><p>Pendedahan secara jelas bagi mengekalkan pematuhan halal.</p><span>1 atau 2 HARI • HALAL EKSEKUTIF & JKHD</span><button onclick="ws('Halal Competency Training')">DAFTAR</button></div>
+<div class="train"><h3>3. Halal Executive Training</h3><p>Syarat jadi Eksekutif Halal. Ikut HPB JAKIM Pindaan 2026.</p><span>WAJIB MPPHM 2026 • KURSUS 7 HARI</span><button onclick="ws('Halal Executive Training')">DAFTAR</button></div>
+<div class="train"><h3>4. Internal Halal Audit Training</h3><p>Buat audit dalaman sebelum JAKIM datang.</p><span>KURSUS 8 HARI • SYARAT: PEMEGANG SIJIL HALAL EKSEKUTIF</span><button onclick="ws('Internal Halal Audit Training')">DAFTAR</button></div>
+<div class="train"><h3>5. Halal Coaching & Consultation</h3><p>1-to-1 coaching dari A-Z sampai lulus.</p><span>PRIVATE • ON-SITE / ONLINE</span><button onclick="ws('Halal Coaching & Consultation')">MOHON COACHING</button></div>
+<div class="train"><h3>6. Food Handler Training</h3><p>Kursus Pengendali Makanan KKM.</p><span>WAJIB UNTUK PENGENDALI MAKANAN</span><button onclick="ws('Food Handler Training')">DAFTAR</button></div>
+<div class="train"><h3>7. Kursus Sertu</h3><p>Pemahaman secara teori dan praktikal sertu.</p><span>1 HARI • HALAL EKSEKUTIF & JKHD</span><button onclick="ws('Kursus Sertu')">DAFTAR</button></div>
+</div>
+<button class="blue" onclick="ws('Saya nak jadual training KAZAI')">WHATSAPP KAZAI - TANYA JADUAL</button>
+</div>
+
+<div class="card blue-top" id="info">
+<h2>Info Halal Terkini 📰</h2>
+<div class="info"><b>🔴 PINDAAN 2026 - 1 April 2026</b><br>MPPHM 2020 (Pindaan 2026) berkuatkuasa. Barang Gunaan kini WAJIB ikut MS 2738:2023.</div>
+<div class="info"><b>📌 Eksekutif Halal - Sijil HPB Sahaja</b><br>Sijil dari penyedia TIDAK berdaftar HPB tidak diterima.</div>
+<div class="info"><b>⏰ Pekerja Baru - 3 Bulan</b><br>Pekerja pemprosesan baru WAJIB habis latihan halal dalam 3 bulan.</div>
+<div class="info"><b>🔄 Renewal - 6 Bulan Awal</b><br>Mohon renewal 6 bulan sebelum tamat di MYeHALAL.</div>
+<div class="info"><b>⚠️ Tukar Pembekal = Kena Maklum</b><br>Tukar pembekal tanpa maklum JAKIM bertulis = Ketidakakuran KECIL.</div>
+<label>Cari Info Halal:</label>
+<input id="cari" placeholder="Taip contoh: tukar pembekal, renewal, eksekutif halal" onkeyup="cariInfo()">
+<div id="cariResult" style="font-size:13px;color:#333"></div>
+</div>
+
+<div class="card" id="dokumen">
+<h2>Dokumen Rujukan Halal 📄</h2>
+<p>Dokumen Rujukan - Klik untuk buka folder Google Drive:</p>
+<div class="doc"><div><b>MPPHM 2020 - Pindaan 2026</b><br><small>Pekeliling Bil. 1/2026 • Berkuatkuasa 1 April 2026</small></div><a href="https://drive.google.com/drive/folders/1Wv6JAkqaL1eeajtloTBeXloUEXbv4Zd7?usp=sharing" target="_blank">BUKA DRIVE</a></div>
+<div class="doc"><div><b>MHMS 2020</b><br><small>Halal Assurance System / Sistem Jaminan Halal (Industri Sederhana dan Besar) & Internal Halal Committee System / Sistem Kawalan Halal Dalaman (Industri Kecil & Mikro)</small></div><a href="https://drive.google.com/drive/folders/1Wv6JAkqaL1eeajtloTBeXloUEXbv4Zd7?usp=sharing" target="_blank">BUKA DRIVE</a></div>
+<div class="doc"><div><b>DOKUMEN RUJUKAN BERKAITAN</b><br><small>JAKIM</small></div><a href="https://drive.google.com/drive/folders/1Wv6JAkqaL1eeajtloTBeXloUEXbv4Zd7?usp=sharing" target="_blank">BUKA DRIVE</a></div>
+<button class="blue" onclick="window.open('https://drive.google.com/drive/folders/1Wv6JAkqaL1eeajtloTBeXloUEXbv4Zd7?usp=sharing','_blank')">📂 BUKA SEMUA DOKUMEN DI GOOGLE DRIVE</button>
+</div>
+
+<p style="text-align:center"><small><b>KAZAI IDEAS</b> - Engaging HALAL Opportunities<br>Panduan sahaja, bukan keputusan rasmi JAKIM / JAIPk.<br>WhatsApp: +60 12-521 0592 | Sahkan di halal.gov.my</small></p>
+</div>
+
+<a class="float-wa" href="https://wa.me/60125210592?text=Salam%20KAZAI%2C%20saya%20nak%20tanya%20pasal%20Halal" target="_blank">💬 WhatsApp KAZAI</a>
+
+<script>
+const docs=["1. Borang MYeHALAL","2. SSM","3. Lesen Perniagaan (PBT)","4. Penyata Kewangan Tahunan","5. Penyelia Halal (kecil) - KP & Surat Lantikan","6. Eksekutif Halal (Sederhana & Besar) - KP & Surat Lantikan","7. 2 orang pekerja Muslim","8. 2 orang tukang masak Muslim [Premis]","9. 2 orang penyembelih Muslim + Tauliah [Sembelih]","10. Sijil Halal ramuan","11. COA / Spesifikasi / Letter of Declaration bahan tiada sijil","12. Carta alir proses","13. Label Pembungkusan produk","14. Peta Lokasi premis / kilang","15. Sijil Pertakanan Dalaman (Hotel sahaja)","16. MeSTI / GMP / HACCP / BeSS / ISO (jika ada)","17. Sijil Halal / Spesifikasi pengapit air (jika ada)","18. Sijil Halal Pemilik Jenama","19. Nama produk pada label sama seperti MYeHALAL","20. Perjanjian OEM (jika berkaitan)","21. Akuan Agensi Regulatori Farmasi Negara","22. Surat pengkelasan produk NPRA (makanan tambahan)","23. Kebenaran KKM / BKKM / Permit Import JPV (jika berkaitan)"];
+const audit=["1. Fail Permohonan halal lengkap","2. Sistem Jaminan Halal","3. Rekod Pembelian / Invois","4. Rekod suntikan anti-typhoid","5. Sijil kursus Pengendalian makanan","6. Rekod kawalan makhluk perosak","7. Rekod pengilang Produk","8. Pelan susun atur kilang"];
+document.getElementById('checklistBox').innerHTML=docs.map(d=>`<label class="check"><input type="checkbox" onchange="kira()"> <span>${d}</span></label>`).join('');
+document.getElementById('auditList').innerHTML=audit.map(a=>`<label class="check"><input type="checkbox"> <span>${a}</span></label>`).join('');
+function kira(){let t=document.querySelectorAll('#checklistBox input:checked').length;let p=Math.round(t/docs.length*100);document.getElementById('progressFill').style.width=p+'%';document.getElementById('progressText').innerText=p+'% Siap - '+t+' / '+docs.length+' Dokumen';if(p==100)alert('Tahniah KAZAI! Lengkap 🎉')}
+function skim(n,s){document.getElementById('skimResult').innerHTML='<br><b>'+n+'</b><br>Standard: '+s}
+function ws(kursus){let no='60125210592';let msg=encodeURIComponent('Salam KAZAI, saya nak daftar '+kursus+'. Boleh bagi jadual & harga?');window.open('https://wa.me/'+no+'?text='+msg,'_blank')}
+function cariInfo(){let q=document.getElementById('cari').value.toLowerCase();let r=document.getElementById('cariResult');if(q.includes('renewal')||q.includes('tamat')){r.innerHTML='➡️ Sijil sah mengikut jenis skim. Mohon renewal 6 bulan sebelum tamat.'}else if(q.includes('pembekal')){r.innerHTML='➡️ Tukar pembekal WAJIB maklum JAKIM bertulis.'}else if(q.includes('eksekutif')){r.innerHTML='➡️ Eksekutif Halal wajib Sijil HPB + wajib ada di setiap cawangan.'}else if(q==''){r.innerHTML=''}else{r.innerHTML='➡️ Info ni belum ada lagi. WhatsApp KAZAI untuk tanya terus.'}}
+</script>
+</body></html>
